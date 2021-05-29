@@ -1,0 +1,81 @@
+.container {
+  margin: 0 34px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.DealershipInventoryList__card {
+  background-color: #fff;
+  border: solid 1px #e4e4e4;
+  width: calc((100% / 3) - 20px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.DealershipInventoryList__image {
+  width: 100%;
+  height: calc(50%);
+}
+.DealershipInventoryList__image img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 270px;
+}
+.DealershipInventoryList__info {
+  padding: 0 18px 18px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -38px;
+}
+.DealershipInventoryList__priceBox {
+  background-color: #d93940;
+  color: #fff;
+  text-align: center;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.DealershipInventoryList__priceTag {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: normal;
+  
+}
+.DealershipInventoryList__priceDay {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.83;
+}
+.DealershipInventoryList__type{
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 1.67px;
+  color: #d93940;
+}
+.DealershipInventoryList__name {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.22;
+  color: #000000;
+  margin-top: 8px;
+
+}
+.DealershipInventoryList__address {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.83;
+  color: #a1a1a1;
+  margin-top: 32px;
+}

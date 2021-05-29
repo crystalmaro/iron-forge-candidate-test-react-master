@@ -1,0 +1,42 @@
+.container {
+  margin: 76px 34px 29px;
+}
+
+.DealershipInventoryFooter__top {
+  display: flex;
+  justify-content: center;
+}
+.DealershipInventoryFooter__appStoreIcon {
+  width: 145px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.DealershipInventoryFooter__bottom {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: normal;
+  color: #a1a1a1;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.DealershipInventoryFooter__bottomItem {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  cursor: pointer;
+}
+.DealershipInventoryFooter__bottomItem:nth-child(2) {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+.DealershipInventoryFooter__bottomItem:nth-child(3) img {
+  margin-left: 10px;
+}
+
+.DealershipInventoryFooter__logo {
+  height: 20px;
+}

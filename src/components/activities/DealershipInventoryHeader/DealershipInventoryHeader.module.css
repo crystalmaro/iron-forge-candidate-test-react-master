@@ -1,0 +1,114 @@
+
+.DealershipInventoryHeader__container {
+}
+
+/* ================
+info container
+================ */
+.DealershipInventoryHeader__banner {
+  width: 100%;
+  height: 209px;
+  margin: 0;
+  background-image: linear-gradient(#fff,  rgba(255, 255, 255, 0) 50%),
+                    url('../../../images/DealershipInventoryBanner.jpg');
+}
+
+.DealershipInventoryHeader__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -60px;
+}
+
+.DealershipInventoryHeader__logo {
+  /* background-image: url('https://elasticbeanstalk-us-east-2-078538388162.s3.us-east-2.amazonaws.com/iron-forge-candidate-test/prod/images/dealershipLogos/guruLogo.png'); */
+  background: #fff;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-position: center -11px;
+  background-repeat: no-repeat;
+}
+
+.DealershipInventoryHeader__info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.DealershipInventoryHeader__name {
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.DealershipInventoryHeader__address {
+  margin-top: 7px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+  color: #7f7f7f;
+}
+
+/* ================
+action container
+================ */
+.DealershipInventoryHeader__action {
+  margin: 56px 34px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.DealershipInventoryHeader__searchWrapper {
+  width: 250px;
+  height: 50px;
+  border-radius: 3px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  display: flex;
+  
+}
+
+.DealershipInventoryHeader__searchIcon {
+  width: 20px;
+  margin: 0 20px;
+}
+
+.DealershipInventoryHeader__searchBox {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: normal;
+  color: #aaaaaa;
+  border: none;
+}
+.DealershipInventoryHeader__searchBox:focus {
+  outline: none;
+}
+
+.DealershipInventoryHeader__divider {
+  height: 31px;
+  margin: 0 10px;
+  border-right: solid 1px #e2e2e2;
+}
+
+.DealershipInventoryHeader__dropdownSelect {
+  cursor: pointer;
+  width: 175px;
+  height: 50px;
+  padding: 18px 15px 17px;
+  border-radius: 3px;
+  border: solid 1px #e2e2e2;
+  background-color: #fff;
+
+  appearance: none;
+  background-image: url('../../../images/rectangle.svg');
+  background-position: 90% center;
+	background-repeat: no-repeat;
+	outline: none;
+}
+
+.DealershipInventoryHeader__dropdownOption {
+  border: 1px solid blue;
+}
