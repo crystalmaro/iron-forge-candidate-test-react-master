@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { DealershipInventoryActivity } from './components/activities/DealershipInventoryActivity/DealershipInventoryActivity';
-import { DealershipInventoryPage } from './components/activities/DealershipInventoryPage/DealershipInventoryPage';
+import DealershipInventoryPage from './components/activities/DealershipInventoryPage/DealershipInventoryPage';
 import { ApolloProvider } from '@apollo/react-hooks';
 import * as apolloService from 'services/apolloService';
 

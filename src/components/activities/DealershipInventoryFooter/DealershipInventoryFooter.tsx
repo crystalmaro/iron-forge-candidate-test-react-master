@@ -1,5 +1,6 @@
 import * as React from 'react';
 import _ from 'lodash';
+// Styles
 import appStoreLogo from '../../../images/logo__app-store.jpg';
 import rrLogo from '../../../images/logo__rr.jpg';
 import googleLogo from '../../../images/logo__google.jpg';

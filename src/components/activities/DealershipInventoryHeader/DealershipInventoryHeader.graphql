@@ -1,0 +1,15 @@
+query DealershipInventoryHeader($id: ID!) {
+  dealership(id: $id) {
+    id
+    name
+    address
+    logoUrl
+    vehicles {
+      type {
+        id
+        name
+        displayName
+      }
+    }
+  }
+}

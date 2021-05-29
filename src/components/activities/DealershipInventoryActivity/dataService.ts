@@ -1,8 +1,6 @@
 import _ from 'lodash';
-
+// GraphQL
 import { useDealershipInventoryActivityQuery as useBaseQuery } from 'generated/graphql';
-
-
 
 export interface IDealership {
   id: string;
@@ -15,6 +13,8 @@ export interface IData {
 
 export function useDealershipInventoryActivityQuery() {
   const tuple = useBaseQuery();
+  console.log('19 DealershipInventoryActivity')
+  console.log(tuple)
 
   const data: IData = {
     dealerships: []

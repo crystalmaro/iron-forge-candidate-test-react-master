@@ -1,0 +1,15 @@
+query DealershipInventoryList($id: ID!) {
+  dealership(id: $id) {
+    vehicles {
+     	id
+    	type {
+        displayName
+        name
+      }
+      name
+      address
+      imageUrl
+      priceCentsPerDay
+    }
+  }
+}

@@ -9,7 +9,8 @@ const styles = require('./DealershipInventoryActivity.module.css');
 
 export const DealershipInventoryActivity: React.FC = props => {
   const queryTuple = dataService.useDealershipInventoryActivityQuery();
-
+  console.log('12 DealershipInventoryActivity')
+  console.log(queryTuple)
 
 
   return (
