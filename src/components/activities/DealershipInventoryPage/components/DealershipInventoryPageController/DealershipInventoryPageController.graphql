@@ -1,0 +1,20 @@
+query DealershipInventoryPageController($id: ID!) {
+  dealership(id: $id) {
+    id
+    name
+    address
+    logoUrl
+    vehicles {
+     	id
+    	type {
+        displayName
+        name
+      	id
+      }
+      name
+      address
+      imageUrl
+      priceCentsPerDay
+    }
+  }
+}

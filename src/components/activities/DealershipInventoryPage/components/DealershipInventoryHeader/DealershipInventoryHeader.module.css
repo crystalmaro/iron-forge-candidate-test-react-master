@@ -2,6 +2,7 @@
 .DealershipInventoryHeader__container {
 }
 
+
 /* ================
 info container
 ================ */
@@ -10,7 +11,7 @@ info container
   height: 209px;
   margin: 0;
   background-image: linear-gradient(#fff,  rgba(255, 255, 255, 0) 50%),
-                    url('../../../images/DealershipInventoryBanner.jpg');
+                    url('../../../../../images/DealershipInventoryBanner.jpg');
 }
 
 .DealershipInventoryHeader__header {
@@ -103,7 +104,7 @@ action container
   background-color: #fff;
 
   appearance: none;
-  background-image: url('../../../images/rectangle.svg');
+  /* background-image: url('../../../images/rectangle.svg'); */
   background-position: 90% center;
 	background-repeat: no-repeat;
 	outline: none;

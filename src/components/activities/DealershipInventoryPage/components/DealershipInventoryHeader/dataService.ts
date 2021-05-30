@@ -5,20 +5,11 @@ import {
   VehicleType,
   DealershipInventoryHeaderQuery
 } from 'generated/graphql';
-import { dealershipId } from '../DealershipInventoryPage/DealershipInventoryPage';
+// import { dealershipId } from '../DealershipInventoryPage';
+const dealershipId = '3781905c-5402-44f7-9e3b-972adbea9855';
 export interface HeaderData {
   dealership: DealershipInventoryHeaderQuery;
 }
-
-// interface Props {
-//   id: number;
-// }
-// const LaunchProfileContainer = ({ id }: Props) => {
-//   const { data, error, loading, refetch } = useLaunchProfileQuery({
-//     variables: { id: String(id) },
-//   });
-
-
 
 export const useDealershipInventoryHeaderQuery = () => {
   const tuple = useBaseQuery({
@@ -33,7 +24,7 @@ export const useDealershipInventoryHeaderQuery = () => {
   const uniqueVehicleTypes = _.uniqWith(
     tuple.data?.dealership.vehicles, _.isEqual)
     .map(x => x.type);
-  uniqueVehicleTypes.unshift(allInventory);
+  uniqueVehicleTypes.unshift(allInventory);  
 
   return {
     ...tuple,

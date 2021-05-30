@@ -5,7 +5,7 @@ import * as dataService from './dataService';
 // Styles
 const styles = require('./DealershipInventoryActivity.module.css');
 
-export const DealershipInventoryActivity: React.FC = props => {
+export  const DealershipInventoryActivity: React.FC = props => {
   const queryTuple = dataService.useDealershipInventoryActivityQuery();
 
   return (
@@ -22,3 +22,4 @@ export const DealershipInventoryActivity: React.FC = props => {
     </div>
   );
 };
+

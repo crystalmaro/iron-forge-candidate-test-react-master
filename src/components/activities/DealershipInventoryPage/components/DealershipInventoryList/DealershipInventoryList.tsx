@@ -2,22 +2,36 @@ import * as React from 'react';
 import _ from 'lodash';
 // GraphQL
 import * as dataService from './dataService';
-import { DealershipInventoryListQuery, VehicleType } from '../../../generated/graphql';
+// import { DealershipInventoryListQuery, VehicleType } from '../../../../generated/graphql';
 
 // Styles
 const styles = require('./DealershipInventoryList.module.css');
 
-// interface Props {
-//   // data: DealershipInventoryListQuery;
-//   // data: String;
-//   data: VehicleType;
-// }
+interface Inventory {
+  id: string;
+  type: {
+    displayName: string;
+    name: string;
+    id: string;
+  },
+  name: string;
+  address: string;
+  imageUrl: string;
+  priceCentsPerDay: number;
+}
 
-const DealershipInventoryList: React.FC = (props) => {
-// const DealershipInventoryList: React.FC<Props> = ({ data }) => {
+interface Props {
+  inventories: Inventory[]
+}
+
+// const DealershipInventoryList: React.FC<Props> = ({ type }) => {
+const DealershipInventoryList: React.FC<Props> = ({inventories}) => {
+  // const queryTuple = dataService.useDealershipInventoryListQuery({ type });
   const queryTuple = dataService.useDealershipInventoryListQuery();
-  // const data = queryTuple.data?.dealership.vehicles;
-  const vehicles = queryTuple.data?.dealership.vehicles;
+  // const vehicles = queryTuple.data?.dealership.vehicles;
+  const vehicles = queryTuple.displayList;
+  console.log('21 display list')
+  console.log(queryTuple)
 
   return (
     <div className={styles.container}>

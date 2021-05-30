@@ -1,14 +1,14 @@
 import * as React from 'react';
 // Styles
-import appStoreLogo from '../../../images/logo__app-store.jpg';
-import rrLogo from '../../../images/logo__rr.jpg';
-import googleLogo from '../../../images/logo__google.jpg';
+import appStoreLogo from '../../../../../images/logo__app-store.jpg';
+import rrLogo from '../../../../../images/logo__rr.jpg';
+import googleLogo from '../../../../../images/logo__google.jpg';
 
 // import * as dataService from './dataService';
 
 const styles = require('./DealershipInventoryFooter.module.css');
 
-export const DealershipInventoryFooter: React.FC = () => {
+const DealershipInventoryFooter: React.FC = () => {
   // const queryTuple = dataService.useDealershipInventoryActivityQuery();
 
   return (
@@ -33,3 +33,5 @@ export const DealershipInventoryFooter: React.FC = () => {
     </div>
   );
 };
+
+export default DealershipInventoryFooter
