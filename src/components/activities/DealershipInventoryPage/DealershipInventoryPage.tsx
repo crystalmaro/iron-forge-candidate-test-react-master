@@ -10,8 +10,11 @@ import DealershipInventoryPageController from './components/DealershipInventoryP
 const styles = require('./DealershipInventoryPage.module.css');
 
 // export const dealershipId = '3781905c-5402-44f7-9e3b-972adbea9855';
-export const dealershipId = 'a7fef0da-0e90-4e96-982d-f2340be94b97';
- 
+// export const dealershipId = 'a7fef0da-0e90-4e96-982d-f2340be94b97';
+
+let parts = window.location.href.split("/");
+export const dealershipId = parts.pop();
+
 const DealershipInventoryPage: React.FC = () => {
 
   // const [type, setType] = React.useState<string>('all');

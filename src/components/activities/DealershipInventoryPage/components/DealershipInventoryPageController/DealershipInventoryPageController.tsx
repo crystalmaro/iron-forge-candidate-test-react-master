@@ -4,7 +4,7 @@ import DealershipInventoryHeader from '../DealershipInventoryHeader';
 import * as dataService from './dataService';
 
 interface Props {
-  children: ({inventories: []}) => React.ReactElement
+  children: ({inventories: []}) => React.ReactElement;
 }
 
 const DealershipInventoryPageController:React.FC<Props> = ({children}) => {
@@ -15,13 +15,14 @@ const DealershipInventoryPageController:React.FC<Props> = ({children}) => {
     inventories,
     dealership,
     uniqueVehicleTypes,
-    handleSearchName
+    handleSearchName,
+    // handleSearchChange
   } = dataService.useDealershipInventoryPageControllerQuery({ selectedVehicleType, searchKey });
 
   return<div>
     <DealershipInventoryHeader
       handleSearchName={handleSearchName}
-      // setSearchValue={setSearchKey}
+      onSearch={setSearchKey}
       handleTypeChange={setSelectedVehicleType}
       dealership={dealership}
       uniqueVehicleTypes={uniqueVehicleTypes}>

@@ -17,7 +17,7 @@ interface Dealership {
 }
 interface OwnProps {
   handleSearchName: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  // setSearchValue: (arg0: string) => void;
+  onSearch: (arg0: string) => void;
   handleTypeChange: (arg0: string) => void;
   dealership?: Dealership;
   uniqueVehicleTypes?: VehicleType[];
@@ -25,7 +25,7 @@ interface OwnProps {
 
 const DealershipInventoryHeader: React.FC<OwnProps> = ({
   handleSearchName,
-  // setSearchValue,
+  onSearch,
   handleTypeChange,
   dealership,
   uniqueVehicleTypes
@@ -55,7 +55,7 @@ const DealershipInventoryHeader: React.FC<OwnProps> = ({
             className={styles.DealershipInventoryHeader__searchIcon}
             alt={dealership?.name}/>
           <input
-            // onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchValue(e.currentTarget.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => onSearch(e.currentTarget.value)}
             onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) => handleSearchName(e)}
             type='text'
             className={styles.DealershipInventoryHeader__searchBox}

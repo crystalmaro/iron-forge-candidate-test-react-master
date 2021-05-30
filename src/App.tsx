@@ -3,7 +3,8 @@ import * as React from 'react';
 import {
   BrowserRouter,
   Switch,
-  Route
+  Route,
+  useLocation
 } from 'react-router-dom';
 
 import { DealershipInventoryActivity } from './components/activities/DealershipInventoryActivity/DealershipInventoryActivity';
@@ -13,6 +14,9 @@ import * as apolloService from 'services/apolloService';
 
 
 export const App: React.FC = props => {
+
+  const dealershipId = window.location.href.split("/").pop();
+
   return (
     <ApolloProvider client={apolloService.getClient()}>
       <BrowserRouter>
@@ -25,7 +29,7 @@ export const App: React.FC = props => {
 
           <Route
             exact
-            path="/dealership"
+            path={`/dealership/${dealershipId}`}
             component={DealershipInventoryPage} />
 
         </Switch>

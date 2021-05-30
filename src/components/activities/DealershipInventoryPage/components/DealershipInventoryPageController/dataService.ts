@@ -6,63 +6,57 @@ import {
   Dealership,
   useDealershipInventoryPageControllerQuery as useBaseQuery,
   VehicleType,
+  Vehicle
 } from 'generated/graphql';
 
 import { dealershipId } from '../../DealershipInventoryPage';
-import { isConstructorDeclaration } from 'typescript';
-// const dealershipId = '3781905c-5402-44f7-9e3b-972adbea9855';
-
 interface Props {
   selectedVehicleType: string;
   searchKey: string;
 }
 
-// interface DealershipData {
-//   data: {
-//     dealership: Dealership;
-//   }
-// }
-
 export const useDealershipInventoryPageControllerQuery = (
   { selectedVehicleType, searchKey }: Props
 ) => {
-  const [initialData, setInitialData] = React.useState([])
+  // const [initialData, setInitialData] = React.useState<Object[]>();
 
   const tuple = useBaseQuery({
-    // TODO get params from useParams React Router
-      variables: { id: dealershipId },
+      variables: { id: String(dealershipId) }
     }
   );
   console.log('tuple', tuple)
 
   const filterInventory = React.useCallback((invt, searchKey = '') => {
-    setInitialData(invt);
+    // setInitialData(invt);
+    let searchResults = invt;
 
-    let searchResults = searchKey === '' ? invt : _.filter(invt, { name: searchKey }) 
+    if (searchKey !== '') {
+      searchResults = _.filter(invt, x => {
+        if (_.includes(x.name, searchKey)) return x
+      })
+    }
 
     if ( selectedVehicleType === 'all' ) {
-      return searchResults
+      return searchResults;
     } else {
-      return _.filter(searchResults, {type: {name: selectedVehicleType}})
+      searchResults = _.filter(searchResults, {type: {name: selectedVehicleType}});
+      return searchResults;
     }
-  }, [ selectedVehicleType ]);
+  }, [ selectedVehicleType, searchKey ]);
 
-  React.useEffect(() => {
-    let originalData = !tuple || !tuple.data ? [] : filterInventory(tuple.data.dealership.vehicles);
-    setInitialData(originalData)
-  }, [])
-  
-  // TODO: rename it to inventoryfilterInventory(tuple.data.dealership.vehicles);
-  // const getInventory = () => {
-  //   debugger
-  //   let inventories = !tuple || !tuple.data ? [] : filterInventory(tuple.data.dealership.vehicles);
-  //   return inventories
-  // }
+  // React.useEffect(() => {
+  //   let orig = !tuple || !tuple.data ? [] : filterInventory(tuple.data.dealership.vehicles);
+  //   setInitialData(orig);
+  // }, [ initialData ])
 
-  // might be better to call fetchInventories
   const inventories = React.useMemo(() => {
-    if ( !tuple || !tuple.data ) return [];
-    else return filterInventory(tuple.data.dealership.vehicles);
+    if ( !tuple || !tuple.data ) {
+      return [];
+    } else {
+      let orig = !tuple || !tuple.data ? [] : tuple.data.dealership.vehicles
+      // setInitialData(orig)
+      return filterInventory(orig);
+    }
   }, [ tuple, filterInventory ]);
 
   const dealership = React.useMemo(() => {
@@ -70,7 +64,6 @@ export const useDealershipInventoryPageControllerQuery = (
     return tuple.data?.dealership;
   }, [ tuple ]);
 
-  // TODO: rename it to vehicleClass
   const uniqueVehicleTypes = React.useMemo(() => {
     if ( !tuple || !tuple.data ) return;
 
@@ -91,28 +84,26 @@ export const useDealershipInventoryPageControllerQuery = (
   }, [ tuple ]);
 
   const handleSearchName = React.useCallback((e) => {
-    // const inventories = tuple.data ? tuple.data.dealership.vehicles : []
-
     let searchKey = e.currentTarget.value;
     console.log(searchKey)
     // keyCode 50 is enter
     if ( e.keyCode === 13 ) {
       // pass in the value into filterInventory
 
-      filterInventory(initialData, searchKey)
+      // TODO issue:
+      // when on search, it runs against an emptry inventories array
+      // due to the tuple data being undefined 
+      filterInventory(tuple.data?.dealership.vehicles, searchKey)
 
     }
-  }, [])
+  }, [ tuple ])
 
   return {
     inventories,
     dealership,
     uniqueVehicleTypes,
-    handleSearchName
+    handleSearchName,
   };
 }
 
 
-// issue:
-// when on search, it runs against an emptry inventories array
-// due to the tuple data being undefined 
