@@ -39,7 +39,7 @@ const DealershipInventoryHeader: React.FC<OwnProps> = (props) => {
       
       <section className={styles.DealershipInventoryHeader__action}>
         <div className={styles.DealershipInventoryHeader__searchWrapper}>
-          <img src={searchIcon} className={styles.DealershipInventoryHeader__searchIcon} />
+          <img src={searchIcon} className={styles.DealershipInventoryHeader__searchIcon} alt={data?.name}/>
           <input type='text' className={styles.DealershipInventoryHeader__searchBox} placeholder='Search by name…' />
         </div>
         <div className={styles.DealershipInventoryHeader__divider} />

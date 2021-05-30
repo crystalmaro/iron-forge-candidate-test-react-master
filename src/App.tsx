@@ -12,7 +12,6 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import * as apolloService from 'services/apolloService';
 
 
-
 export const App: React.FC = props => {
   return (
     <ApolloProvider client={apolloService.getClient()}>

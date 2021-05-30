@@ -21,7 +21,6 @@ info container
 }
 
 .DealershipInventoryHeader__logo {
-  /* background-image: url('https://elasticbeanstalk-us-east-2-078538388162.s3.us-east-2.amazonaws.com/iron-forge-candidate-test/prod/images/dealershipLogos/guruLogo.png'); */
   background: #fff;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   width: 100px;
@@ -111,5 +110,5 @@ action container
 }
 
 .DealershipInventoryHeader__dropdownOption {
-  border: 1px solid blue;
+
 }

@@ -1,17 +1,12 @@
 import * as React from 'react';
 import _ from 'lodash';
-
+// GraphQL
 import * as dataService from './dataService';
-
+// Styles
 const styles = require('./DealershipInventoryActivity.module.css');
-
-
 
 export const DealershipInventoryActivity: React.FC = props => {
   const queryTuple = dataService.useDealershipInventoryActivityQuery();
-  console.log('12 DealershipInventoryActivity')
-  console.log(queryTuple)
-
 
   return (
     <div className={styles.container}>
@@ -22,7 +17,8 @@ export const DealershipInventoryActivity: React.FC = props => {
           <div className={styles.dealership}>
             {dealership.name} [{dealership.id}]
           </div>
-        ))}
+        ))
+      }
     </div>
   );
 };

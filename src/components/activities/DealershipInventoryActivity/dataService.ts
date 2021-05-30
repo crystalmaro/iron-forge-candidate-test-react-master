@@ -13,17 +13,17 @@ export interface IData {
 
 export function useDealershipInventoryActivityQuery() {
   const tuple = useBaseQuery();
-  console.log('19 DealershipInventoryActivity')
-  console.log(tuple)
-
   const data: IData = {
     dealerships: []
   };
+
   if (tuple.data?.dealerships) {
-    data.dealerships = _.map(tuple.data.dealerships, (dealership): IDealership => ({
-      id: dealership.id,
-      name: dealership.name
-    }));
+    data.dealerships = _.map(tuple.data.dealerships,
+      (dealership): IDealership => ({
+        id: dealership.id,
+        name: dealership.name
+      })
+    );
   }
 
   return {

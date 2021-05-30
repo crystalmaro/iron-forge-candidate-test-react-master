@@ -1,4 +1,3 @@
-import * as React from 'react';
 import _ from 'lodash';
 // GraphQL
 import {
@@ -6,7 +5,7 @@ import {
   VehicleType,
   DealershipInventoryHeaderQuery
 } from 'generated/graphql';
-
+import { dealershipId } from '../DealershipInventoryPage/DealershipInventoryPage';
 export interface HeaderData {
   dealership: DealershipInventoryHeaderQuery;
 }
@@ -20,9 +19,10 @@ export interface HeaderData {
 //   });
 
 
+
 export const useDealershipInventoryHeaderQuery = () => {
   const tuple = useBaseQuery({
-      variables: { id: 'a7fef0da-0e90-4e96-982d-f2340be94b97' },
+      variables: { id: dealershipId },
     }
   );
   const allInventory: VehicleType = {

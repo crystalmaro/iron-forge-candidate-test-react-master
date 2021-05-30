@@ -1,16 +1,17 @@
 import * as React from 'react';
 import _ from 'lodash';
-
-// import * as dataService from './dataService';
 // Components
 import DealershipInventoryHeader from '../DealershipInventoryHeader/DealershipInventoryHeader';
 import DealershipInventoryList from '../DealershipInventoryList/DealershipInventoryList';
 import { DealershipInventoryFooter } from '../DealershipInventoryFooter/DealershipInventoryFooter';
 // Styles
 const styles = require('./DealershipInventoryPage.module.css');
+
+export const dealershipId = '3781905c-5402-44f7-9e3b-972adbea9855';
+// export const dealershipId = 'a7fef0da-0e90-4e96-982d-f2340be94b97';
  
 const DealershipInventoryPage = () => {
-  const [id, setId] = React.useState<String>('a7fef0da-0e90-4e96-982d-f2340be94b97')
+
   const [type, setType] = React.useState<String>('all');
   const handleTypeChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     let { value } = e.currentTarget;
@@ -21,6 +22,7 @@ const DealershipInventoryPage = () => {
   return (
     <div className={styles.container}>
       <DealershipInventoryHeader handleTypeChange={handleTypeChange} />
+      {/* <DealershipInventoryList type={type} /> */}
       <DealershipInventoryList />
       <DealershipInventoryFooter />
     </div>
