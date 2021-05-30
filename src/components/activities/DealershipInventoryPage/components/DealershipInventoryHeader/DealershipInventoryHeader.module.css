@@ -1,8 +1,3 @@
-
-.DealershipInventoryHeader__container {
-}
-
-
 /* ================
 info container
 ================ */
@@ -69,7 +64,6 @@ action container
   border: solid 1px #e2e2e2;
   background-color: #ffffff;
   display: flex;
-  
 }
 
 .DealershipInventoryHeader__searchIcon {
@@ -102,14 +96,9 @@ action container
   border-radius: 3px;
   border: solid 1px #e2e2e2;
   background-color: #fff;
-
   appearance: none;
-  /* background-image: url('../../../images/rectangle.svg'); */
+  background-image: url('../../../../../images/rectangle.svg');
   background-position: 90% center;
 	background-repeat: no-repeat;
 	outline: none;
-}
-
-.DealershipInventoryHeader__dropdownOption {
-
 }

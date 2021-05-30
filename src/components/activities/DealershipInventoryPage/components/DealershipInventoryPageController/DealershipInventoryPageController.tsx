@@ -1,33 +1,30 @@
+import { Vehicle } from 'generated/graphql';
 import * as React from 'react';
 import DealershipInventoryHeader from '../DealershipInventoryHeader';
-// import DealershipInventoryList from './DealershipInventoryList';
-import DealershipInventoryFooter from '../DealershipInventoryFooter';
-
 import * as dataService from './dataService';
 
 interface Props {
   children: ({inventories: []}) => React.ReactElement
 }
 
-
-
 const DealershipInventoryPageController:React.FC<Props> = ({children}) => {
-  // const [type, setTypes] = useState("all")
-  // const [searchItem, setSearchItem] = useState("")
-  // const { products } = useGetProdcuts({ type, searchItem}
+  const [selectedVehicleType, setSelectedVehicleType] = React.useState<string>('all');
+  const [searchKey, setSearchKey] = React.useState<string>('');
   
-
-  const [type, setType] = React.useState<string>('all');
-  const [searchStr, setSearchStr] = React.useState<string>("")
-  
-
-  const {inventories, dealerships} = dataService.useDealershipInventoryPageControllerQuery({ type, searchStr });
+  const {
+    inventories,
+    dealership,
+    uniqueVehicleTypes,
+    handleSearchName
+  } = dataService.useDealershipInventoryPageControllerQuery({ selectedVehicleType, searchKey });
 
   return<div>
-    <DealershipInventoryHeader handleTypeChange={setType} dealerships={dealerships}>
-      {/* <div>banner</div> */}
-      {/* <Search value={searchItem} onChange={setSearchItem}/>
-      <Filter value={type} onChange={setType}/> */}
+    <DealershipInventoryHeader
+      handleSearchName={handleSearchName}
+      // setSearchValue={setSearchKey}
+      handleTypeChange={setSelectedVehicleType}
+      dealership={dealership}
+      uniqueVehicleTypes={uniqueVehicleTypes}>
     </DealershipInventoryHeader>
     {children({ inventories })}
   </div>

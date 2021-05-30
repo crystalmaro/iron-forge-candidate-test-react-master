@@ -1,1 +1,1 @@
-export { default } from "./DealershipInventoryHeader"
+export { default } from './DealershipInventoryHeader'
