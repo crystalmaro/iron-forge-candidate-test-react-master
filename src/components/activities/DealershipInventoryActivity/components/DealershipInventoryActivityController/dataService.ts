@@ -29,9 +29,9 @@ export const useDealershipInventoryActivityControllerQuery = (
       variables: { id: String( dealershipId ) }
     }
   );
-    console.log(tuple)
+
   const filterInventory = React.useCallback(( invt ) => {
-    let searchResults: Vehicle[] = invt;
+    let searchResults: Vehicle[] = _.orderBy( invt, [ 'name' ]);
 
     if ( searchKey !== '' ) {
       searchResults = _.filter(invt, str => {
