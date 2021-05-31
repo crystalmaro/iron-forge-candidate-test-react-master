@@ -1,22 +1,22 @@
 /* ================
 info container
 ================ */
-.DealershipInventoryHeader__banner {
+.banner {
   width: 100%;
   height: 209px;
   margin: 0;
-  background-image: linear-gradient(#fff,  rgba(255, 255, 255, 0) 50%),
+  background-image: linear-gradient(#fff, rgba(255, 255, 255, 0) 50%),
                     url('../../../../../images/DealershipInventoryBanner.jpg');
 }
 
-.DealershipInventoryHeader__header {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: -60px;
 }
 
-.DealershipInventoryHeader__logo {
+.logo {
   background: #fff;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   width: 100px;
@@ -27,19 +27,19 @@ info container
   background-repeat: no-repeat;
 }
 
-.DealershipInventoryHeader__info {
+.info {
   text-align: center;
   margin-top: 20px;
 }
 
-.DealershipInventoryHeader__name {
+.name {
   font-family: Inter;
   font-size: 28px;
   font-weight: bold;
   color: #000000;
 }
 
-.DealershipInventoryHeader__address {
+.address {
   margin-top: 7px;
   font-family: Inter;
   font-size: 20px;
@@ -51,13 +51,13 @@ info container
 /* ================
 action container
 ================ */
-.DealershipInventoryHeader__action {
+.action {
   margin: 56px 34px 30px;
   display: flex;
   align-items: center;
 }
 
-.DealershipInventoryHeader__searchWrapper {
+.searchWrapper {
   width: 250px;
   height: 50px;
   border-radius: 3px;
@@ -66,29 +66,29 @@ action container
   display: flex;
 }
 
-.DealershipInventoryHeader__searchIcon {
+.searchIcon {
   width: 20px;
   margin: 0 20px;
 }
 
-.DealershipInventoryHeader__searchBox {
+.searchBox {
   font-family: Inter;
   font-size: 12px;
   font-weight: normal;
   color: #aaaaaa;
   border: none;
 }
-.DealershipInventoryHeader__searchBox:focus {
+.searchBox:focus {
   outline: none;
 }
 
-.DealershipInventoryHeader__divider {
+.divider {
   height: 31px;
   margin: 0 10px;
   border-right: solid 1px #e2e2e2;
 }
 
-.DealershipInventoryHeader__dropdownSelect {
+.dropdownSelect {
   cursor: pointer;
   width: 175px;
   height: 50px;

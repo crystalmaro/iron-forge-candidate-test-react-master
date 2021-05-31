@@ -1,1 +1,1 @@
-export { default } from "./DealershipInventoryFooter"
+export { default } from './DealershipInventoryFooter';

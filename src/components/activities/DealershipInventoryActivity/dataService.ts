@@ -1,5 +1,4 @@
 import _ from 'lodash';
-// GraphQL
 import { useDealershipInventoryActivityQuery as useBaseQuery } from 'generated/graphql';
 
 export interface IDealership {

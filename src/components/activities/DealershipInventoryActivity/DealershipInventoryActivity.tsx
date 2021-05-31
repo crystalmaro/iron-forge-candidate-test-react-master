@@ -1,6 +1,5 @@
 import * as React from 'react';
 import _ from 'lodash';
-// GraphQL
 import * as dataService from './dataService';
 // Styles
 const styles = require('./DealershipInventoryActivity.module.css');

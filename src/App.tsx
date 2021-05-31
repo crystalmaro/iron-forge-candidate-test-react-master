@@ -4,7 +4,6 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  useLocation
 } from 'react-router-dom';
 
 import { DealershipInventoryActivity } from './components/activities/DealershipInventoryActivity/DealershipInventoryActivity';
@@ -12,10 +11,9 @@ import DealershipInventoryPage from './components/activities/DealershipInventory
 import { ApolloProvider } from '@apollo/react-hooks';
 import * as apolloService from 'services/apolloService';
 
+export const dealershipId = window.location.href.split('/').pop();
 
-export const App: React.FC = props => {
-
-  const dealershipId = window.location.href.split("/").pop();
+export const App: React.FC = () => {
 
   return (
     <ApolloProvider client={apolloService.getClient()}>
@@ -24,7 +22,7 @@ export const App: React.FC = props => {
 
           <Route
             exact
-            path="/"
+            path='/'
             component={DealershipInventoryActivity} />
 
           <Route

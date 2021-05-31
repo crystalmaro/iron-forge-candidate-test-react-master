@@ -1,10 +1,9 @@
-import { Vehicle } from 'generated/graphql';
 import * as React from 'react';
-import DealershipInventoryHeader from '../DealershipInventoryHeader';
 import * as dataService from './dataService';
+import DealershipInventoryHeader from '../DealershipInventoryHeader';
 
 interface Props {
-  children: ({inventories: []}) => React.ReactElement;
+  children: ({inventoryList: []}) => React.ReactElement;
 }
 
 const DealershipInventoryPageController:React.FC<Props> = ({children}) => {
@@ -12,22 +11,19 @@ const DealershipInventoryPageController:React.FC<Props> = ({children}) => {
   const [searchKey, setSearchKey] = React.useState<string>('');
   
   const {
-    inventories,
+    inventoryList,
     dealership,
-    uniqueVehicleTypes,
-    handleSearchName,
-    // handleSearchChange
+    vehicleTypeList,
   } = dataService.useDealershipInventoryPageControllerQuery({ selectedVehicleType, searchKey });
 
   return<div>
     <DealershipInventoryHeader
-      handleSearchName={handleSearchName}
-      onSearch={setSearchKey}
+      handleNameSearch={setSearchKey}
       handleTypeChange={setSelectedVehicleType}
       dealership={dealership}
-      uniqueVehicleTypes={uniqueVehicleTypes}>
+      vehicleTypeList={vehicleTypeList}>
     </DealershipInventoryHeader>
-    {children({ inventories })}
+    {children({ inventoryList })}
   </div>
 }
 

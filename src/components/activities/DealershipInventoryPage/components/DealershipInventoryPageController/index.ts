@@ -1,1 +1,1 @@
-export { default } from "./DealershipInventoryPageController"
+export { default } from './DealershipInventoryPageController';

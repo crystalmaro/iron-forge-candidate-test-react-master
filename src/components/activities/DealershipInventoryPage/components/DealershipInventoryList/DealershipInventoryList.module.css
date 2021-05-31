@@ -1,36 +1,40 @@
 .container {
-  margin: 0 34px;
+  margin: 0 24px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
-.DealershipInventoryList__card {
+.card {
   background-color: #fff;
   border: solid 1px #e4e4e4;
-  width: calc((100% / 3) - 20px);
+  width: calc(( 100% / 3 ) - 20px);
   height: 100%;
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
-.DealershipInventoryList__image {
+
+.vehicleImage {
   width: 100%;
   height: calc(50%);
 }
-.DealershipInventoryList__image img {
+
+.vehicleImage img {
   width: 100%;
   object-fit: cover;
   object-position: center;
   height: 270px;
 }
-.DealershipInventoryList__info {
+
+.info {
   padding: 0 20px 20px;
   display: flex;
   flex-direction: column;
   margin-top: -38px;
 }
-.DealershipInventoryList__priceBox {
+
+.priceBox {
   background-color: #d93940;
   color: #fff;
   text-align: center;
@@ -41,20 +45,21 @@
   align-items: center;
   padding: 10px;
 }
-.DealershipInventoryList__priceTag {
+
+.priceTag {
   font-family: Roboto;
   font-size: 20px;
   font-weight: bold;
   line-height: normal;
   
 }
-.DealershipInventoryList__priceDay {
+.priceDay {
   font-family: Inter;
   font-size: 12px;
   font-weight: normal;
   line-height: 1.83;
 }
-.DealershipInventoryList__type{
+.type {
   font-family: Inter;
   font-size: 10px;
   font-weight: 500;
@@ -62,7 +67,7 @@
   letter-spacing: 1.67px;
   color: #d93940;
 }
-.DealershipInventoryList__name {
+.name {
   font-family: Inter;
   font-size: 18px;
   font-weight: bold;
@@ -71,7 +76,7 @@
   margin-top: 8px;
 
 }
-.DealershipInventoryList__address {
+.address {
   font-family: Inter;
   font-size: 12px;
   font-weight: normal;

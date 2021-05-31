@@ -1,15 +1,12 @@
 
 import * as React from 'react';
-import _, { filter } from 'lodash';
-// GraphQL
+import _ from 'lodash';
 import {
-  Dealership,
   useDealershipInventoryPageControllerQuery as useBaseQuery,
   VehicleType,
-  Vehicle
 } from 'generated/graphql';
-
-import { dealershipId } from '../../DealershipInventoryPage';
+// import { dealershipId } from '../../DealershipInventoryPage';
+import { dealershipId } from '../../../../../App';
 interface Props {
   selectedVehicleType: string;
   searchKey: string;
@@ -18,45 +15,29 @@ interface Props {
 export const useDealershipInventoryPageControllerQuery = (
   { selectedVehicleType, searchKey }: Props
 ) => {
-  // const [initialData, setInitialData] = React.useState<Object[]>();
 
-  const tuple = useBaseQuery({
+  const tuple = useBaseQuery(
+    {
       variables: { id: String(dealershipId) }
     }
   );
-  console.log('tuple', tuple)
 
-  const filterInventory = React.useCallback((invt, searchKey = '') => {
-    // setInitialData(invt);
+  const filterInventory = React.useCallback(( invt ) => {
     let searchResults = invt;
 
-    if (searchKey !== '') {
+    if ( searchKey !== '' ) {
       searchResults = _.filter(invt, x => {
-        if (_.includes(x.name, searchKey)) return x
+        if ( _.includes(( x.name ).toLowerCase(), ( searchKey ).toLowerCase() )) return x;
       })
     }
-
-    if ( selectedVehicleType === 'all' ) {
-      return searchResults;
-    } else {
-      searchResults = _.filter(searchResults, {type: {name: selectedVehicleType}});
-      return searchResults;
-    }
+  
+    if ( selectedVehicleType === 'all' ) return searchResults;
+    else return _.filter( searchResults, { type: { name: selectedVehicleType }});
   }, [ selectedVehicleType, searchKey ]);
 
-  // React.useEffect(() => {
-  //   let orig = !tuple || !tuple.data ? [] : filterInventory(tuple.data.dealership.vehicles);
-  //   setInitialData(orig);
-  // }, [ initialData ])
-
-  const inventories = React.useMemo(() => {
-    if ( !tuple || !tuple.data ) {
-      return [];
-    } else {
-      let orig = !tuple || !tuple.data ? [] : tuple.data.dealership.vehicles
-      // setInitialData(orig)
-      return filterInventory(orig);
-    }
+  const inventoryList = React.useMemo(() => {
+    if ( !tuple || !tuple.data ) return [];
+    else return filterInventory( tuple.data.dealership.vehicles );
   }, [ tuple, filterInventory ]);
 
   const dealership = React.useMemo(() => {
@@ -64,7 +45,7 @@ export const useDealershipInventoryPageControllerQuery = (
     return tuple.data?.dealership;
   }, [ tuple ]);
 
-  const uniqueVehicleTypes = React.useMemo(() => {
+  const vehicleTypeList = React.useMemo(() => {
     if ( !tuple || !tuple.data ) return;
 
     const allInventoryType: VehicleType = {
@@ -73,37 +54,18 @@ export const useDealershipInventoryPageControllerQuery = (
       name: 'all'
     }
 
-    const allVehiclesTypes = _.uniqWith(
+    const uniqueVehicleTypes = _.uniqWith(
       tuple.data?.dealership.vehicles, _.isEqual)
       .map(vehicle => vehicle.type);
-      
-    const uniqueVehicleTypes = _.uniqWith(allVehiclesTypes, _.isEqual);
-    uniqueVehicleTypes.unshift(allInventoryType);
 
-    return uniqueVehicleTypes;
+    const vehicleTypes = _.uniqWith(uniqueVehicleTypes, _.isEqual);
+    vehicleTypes.unshift(allInventoryType);
+    return vehicleTypes;
   }, [ tuple ]);
 
-  const handleSearchName = React.useCallback((e) => {
-    let searchKey = e.currentTarget.value;
-    console.log(searchKey)
-    // keyCode 50 is enter
-    if ( e.keyCode === 13 ) {
-      // pass in the value into filterInventory
-
-      // TODO issue:
-      // when on search, it runs against an emptry inventories array
-      // due to the tuple data being undefined 
-      filterInventory(tuple.data?.dealership.vehicles, searchKey)
-
-    }
-  }, [ tuple ])
-
   return {
-    inventories,
+    inventoryList,
     dealership,
-    uniqueVehicleTypes,
-    handleSearchName,
+    vehicleTypeList,
   };
 }
-
-
