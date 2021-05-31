@@ -1,6 +1,0 @@
-query DealershipInventoryActivity {
-  dealerships {
-    id
-    name
-  }
-}

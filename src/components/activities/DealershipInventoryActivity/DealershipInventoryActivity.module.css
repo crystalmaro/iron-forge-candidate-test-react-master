@@ -1,11 +1,8 @@
-.container {
-  background-color: #fff;
-  padding: 20px;
-  color: #000;
-  font-size: 22px;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
-  .dealership {
-    font-size: 14px;
-    color: #666;
-  }
+.container {
+  background-color: #fbfbfd;
+}

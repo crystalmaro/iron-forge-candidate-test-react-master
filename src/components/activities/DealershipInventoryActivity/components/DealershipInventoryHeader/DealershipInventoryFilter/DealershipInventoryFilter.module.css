@@ -1,0 +1,14 @@
+.dropdownSelect {
+  cursor: pointer;
+  width: 175px;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 3px;
+  border: solid 1px #e2e2e2;
+  background-color: #fff;
+  appearance: none;
+  background-image: url('../../../../../../images/rectangle.svg');
+  background-position: 90% center;
+	background-repeat: no-repeat;
+	outline: none;
+}

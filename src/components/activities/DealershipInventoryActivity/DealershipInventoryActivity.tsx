@@ -1,24 +1,23 @@
 import * as React from 'react';
-import _ from 'lodash';
-import * as dataService from './dataService';
+// Components
+import DealershipInventoryActivityController from './components/DealershipInventoryActivityController/';
+import DealershipInventoryList from './components/DealershipInventoryList';
+import DealershipInventoryFooter from './components/DealershipInventoryFooter/';
 // Styles
 const styles = require('./DealershipInventoryActivity.module.css');
 
-export  const DealershipInventoryActivity: React.FC = props => {
-  const queryTuple = dataService.useDealershipInventoryActivityQuery();
+const DealershipInventoryActivity: React.FC = () => (
 
-  return (
-    <div className={styles.container}>
-      Dealership Inventory Activity
+  <div className={ styles.container }>
 
-      {!queryTuple.loading &&
-        _.map(queryTuple.data.dealerships, dealership => (
-          <div className={styles.dealership}>
-            {dealership.name} [{dealership.id}]
-          </div>
-        ))
-      }
-    </div>
-  );
-};
+    <DealershipInventoryActivityController>
+      {({ inventoryList }) => {
+        return <DealershipInventoryList inventoryList={ inventoryList } />
+      }}
+    </DealershipInventoryActivityController>
 
+    <DealershipInventoryFooter />
+  </div>
+);
+
+export default DealershipInventoryActivity;

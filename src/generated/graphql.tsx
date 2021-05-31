@@ -57,64 +57,12 @@ export type VehicleType = {
   displayName: Scalars['String'];
 };
 
-export type DealershipInventoryActivityQueryVariables = {};
-
-
-export type DealershipInventoryActivityQuery = (
-  { __typename?: 'Query' }
-  & { dealerships: Array<(
-    { __typename?: 'Dealership' }
-    & Pick<Dealership, 'id' | 'name'>
-  )> }
-);
-
-export type DealershipInventoryHeaderQueryVariables = {
+export type DealershipInventoryActivityControllerQueryVariables = {
   id: Scalars['ID'];
 };
 
 
-export type DealershipInventoryHeaderQuery = (
-  { __typename?: 'Query' }
-  & { dealership: (
-    { __typename?: 'Dealership' }
-    & Pick<Dealership, 'id' | 'name' | 'address' | 'logoUrl'>
-    & { vehicles: Array<(
-      { __typename?: 'Vehicle' }
-      & { type: (
-        { __typename?: 'VehicleType' }
-        & Pick<VehicleType, 'id' | 'name' | 'displayName'>
-      ) }
-    )> }
-  ) }
-);
-
-export type DealershipInventoryListQueryVariables = {
-  id: Scalars['ID'];
-};
-
-
-export type DealershipInventoryListQuery = (
-  { __typename?: 'Query' }
-  & { dealership: (
-    { __typename?: 'Dealership' }
-    & Pick<Dealership, 'id'>
-    & { vehicles: Array<(
-      { __typename?: 'Vehicle' }
-      & Pick<Vehicle, 'id' | 'name' | 'address' | 'imageUrl' | 'priceCentsPerDay'>
-      & { type: (
-        { __typename?: 'VehicleType' }
-        & Pick<VehicleType, 'displayName' | 'name'>
-      ) }
-    )> }
-  ) }
-);
-
-export type DealershipInventoryPageControllerQueryVariables = {
-  id: Scalars['ID'];
-};
-
-
-export type DealershipInventoryPageControllerQuery = (
+export type DealershipInventoryActivityControllerQuery = (
   { __typename?: 'Query' }
   & { dealership: (
     { __typename?: 'Dealership' }
@@ -131,128 +79,8 @@ export type DealershipInventoryPageControllerQuery = (
 );
 
 
-export const DealershipInventoryActivityDocument = gql`
-    query DealershipInventoryActivity {
-  dealerships {
-    id
-    name
-  }
-}
-    `;
-
-/**
- * __useDealershipInventoryActivityQuery__
- *
- * To run a query within a React component, call `useDealershipInventoryActivityQuery` and pass it any options that fit your needs.
- * When your component renders, `useDealershipInventoryActivityQuery` returns an object from Apollo Client that contains loading, error, and data properties 
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useDealershipInventoryActivityQuery({
- *   variables: {
- *   },
- * });
- */
-export function useDealershipInventoryActivityQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<DealershipInventoryActivityQuery, DealershipInventoryActivityQueryVariables>) {
-        return ApolloReactHooks.useQuery<DealershipInventoryActivityQuery, DealershipInventoryActivityQueryVariables>(DealershipInventoryActivityDocument, baseOptions);
-      }
-export function useDealershipInventoryActivityLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<DealershipInventoryActivityQuery, DealershipInventoryActivityQueryVariables>) {
-          return ApolloReactHooks.useLazyQuery<DealershipInventoryActivityQuery, DealershipInventoryActivityQueryVariables>(DealershipInventoryActivityDocument, baseOptions);
-        }
-export type DealershipInventoryActivityQueryHookResult = ReturnType<typeof useDealershipInventoryActivityQuery>;
-export type DealershipInventoryActivityLazyQueryHookResult = ReturnType<typeof useDealershipInventoryActivityLazyQuery>;
-export type DealershipInventoryActivityQueryResult = ApolloReactCommon.QueryResult<DealershipInventoryActivityQuery, DealershipInventoryActivityQueryVariables>;
-export const DealershipInventoryHeaderDocument = gql`
-    query DealershipInventoryHeader($id: ID!) {
-  dealership(id: $id) {
-    id
-    name
-    address
-    logoUrl
-    vehicles {
-      type {
-        id
-        name
-        displayName
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useDealershipInventoryHeaderQuery__
- *
- * To run a query within a React component, call `useDealershipInventoryHeaderQuery` and pass it any options that fit your needs.
- * When your component renders, `useDealershipInventoryHeaderQuery` returns an object from Apollo Client that contains loading, error, and data properties 
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useDealershipInventoryHeaderQuery({
- *   variables: {
- *      id: // value for 'id'
- *   },
- * });
- */
-export function useDealershipInventoryHeaderQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<DealershipInventoryHeaderQuery, DealershipInventoryHeaderQueryVariables>) {
-        return ApolloReactHooks.useQuery<DealershipInventoryHeaderQuery, DealershipInventoryHeaderQueryVariables>(DealershipInventoryHeaderDocument, baseOptions);
-      }
-export function useDealershipInventoryHeaderLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<DealershipInventoryHeaderQuery, DealershipInventoryHeaderQueryVariables>) {
-          return ApolloReactHooks.useLazyQuery<DealershipInventoryHeaderQuery, DealershipInventoryHeaderQueryVariables>(DealershipInventoryHeaderDocument, baseOptions);
-        }
-export type DealershipInventoryHeaderQueryHookResult = ReturnType<typeof useDealershipInventoryHeaderQuery>;
-export type DealershipInventoryHeaderLazyQueryHookResult = ReturnType<typeof useDealershipInventoryHeaderLazyQuery>;
-export type DealershipInventoryHeaderQueryResult = ApolloReactCommon.QueryResult<DealershipInventoryHeaderQuery, DealershipInventoryHeaderQueryVariables>;
-export const DealershipInventoryListDocument = gql`
-    query DealershipInventoryList($id: ID!) {
-  dealership(id: $id) {
-    id
-    vehicles {
-      id
-      type {
-        displayName
-        name
-      }
-      name
-      address
-      imageUrl
-      priceCentsPerDay
-    }
-  }
-}
-    `;
-
-/**
- * __useDealershipInventoryListQuery__
- *
- * To run a query within a React component, call `useDealershipInventoryListQuery` and pass it any options that fit your needs.
- * When your component renders, `useDealershipInventoryListQuery` returns an object from Apollo Client that contains loading, error, and data properties 
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useDealershipInventoryListQuery({
- *   variables: {
- *      id: // value for 'id'
- *   },
- * });
- */
-export function useDealershipInventoryListQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<DealershipInventoryListQuery, DealershipInventoryListQueryVariables>) {
-        return ApolloReactHooks.useQuery<DealershipInventoryListQuery, DealershipInventoryListQueryVariables>(DealershipInventoryListDocument, baseOptions);
-      }
-export function useDealershipInventoryListLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<DealershipInventoryListQuery, DealershipInventoryListQueryVariables>) {
-          return ApolloReactHooks.useLazyQuery<DealershipInventoryListQuery, DealershipInventoryListQueryVariables>(DealershipInventoryListDocument, baseOptions);
-        }
-export type DealershipInventoryListQueryHookResult = ReturnType<typeof useDealershipInventoryListQuery>;
-export type DealershipInventoryListLazyQueryHookResult = ReturnType<typeof useDealershipInventoryListLazyQuery>;
-export type DealershipInventoryListQueryResult = ApolloReactCommon.QueryResult<DealershipInventoryListQuery, DealershipInventoryListQueryVariables>;
-export const DealershipInventoryPageControllerDocument = gql`
-    query DealershipInventoryPageController($id: ID!) {
+export const DealershipInventoryActivityControllerDocument = gql`
+    query DealershipInventoryActivityController($id: ID!) {
   dealership(id: $id) {
     id
     name
@@ -275,27 +103,27 @@ export const DealershipInventoryPageControllerDocument = gql`
     `;
 
 /**
- * __useDealershipInventoryPageControllerQuery__
+ * __useDealershipInventoryActivityControllerQuery__
  *
- * To run a query within a React component, call `useDealershipInventoryPageControllerQuery` and pass it any options that fit your needs.
- * When your component renders, `useDealershipInventoryPageControllerQuery` returns an object from Apollo Client that contains loading, error, and data properties 
+ * To run a query within a React component, call `useDealershipInventoryActivityControllerQuery` and pass it any options that fit your needs.
+ * When your component renders, `useDealershipInventoryActivityControllerQuery` returns an object from Apollo Client that contains loading, error, and data properties 
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useDealershipInventoryPageControllerQuery({
+ * const { data, loading, error } = useDealershipInventoryActivityControllerQuery({
  *   variables: {
  *      id: // value for 'id'
  *   },
  * });
  */
-export function useDealershipInventoryPageControllerQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<DealershipInventoryPageControllerQuery, DealershipInventoryPageControllerQueryVariables>) {
-        return ApolloReactHooks.useQuery<DealershipInventoryPageControllerQuery, DealershipInventoryPageControllerQueryVariables>(DealershipInventoryPageControllerDocument, baseOptions);
+export function useDealershipInventoryActivityControllerQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<DealershipInventoryActivityControllerQuery, DealershipInventoryActivityControllerQueryVariables>) {
+        return ApolloReactHooks.useQuery<DealershipInventoryActivityControllerQuery, DealershipInventoryActivityControllerQueryVariables>(DealershipInventoryActivityControllerDocument, baseOptions);
       }
-export function useDealershipInventoryPageControllerLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<DealershipInventoryPageControllerQuery, DealershipInventoryPageControllerQueryVariables>) {
-          return ApolloReactHooks.useLazyQuery<DealershipInventoryPageControllerQuery, DealershipInventoryPageControllerQueryVariables>(DealershipInventoryPageControllerDocument, baseOptions);
+export function useDealershipInventoryActivityControllerLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<DealershipInventoryActivityControllerQuery, DealershipInventoryActivityControllerQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<DealershipInventoryActivityControllerQuery, DealershipInventoryActivityControllerQueryVariables>(DealershipInventoryActivityControllerDocument, baseOptions);
         }
-export type DealershipInventoryPageControllerQueryHookResult = ReturnType<typeof useDealershipInventoryPageControllerQuery>;
-export type DealershipInventoryPageControllerLazyQueryHookResult = ReturnType<typeof useDealershipInventoryPageControllerLazyQuery>;
-export type DealershipInventoryPageControllerQueryResult = ApolloReactCommon.QueryResult<DealershipInventoryPageControllerQuery, DealershipInventoryPageControllerQueryVariables>;
+export type DealershipInventoryActivityControllerQueryHookResult = ReturnType<typeof useDealershipInventoryActivityControllerQuery>;
+export type DealershipInventoryActivityControllerLazyQueryHookResult = ReturnType<typeof useDealershipInventoryActivityControllerLazyQuery>;
+export type DealershipInventoryActivityControllerQueryResult = ApolloReactCommon.QueryResult<DealershipInventoryActivityControllerQuery, DealershipInventoryActivityControllerQueryVariables>;

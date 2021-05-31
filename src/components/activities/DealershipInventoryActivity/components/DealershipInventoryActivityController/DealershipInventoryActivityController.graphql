@@ -1,4 +1,4 @@
-query DealershipInventoryPageController($id: ID!) {
+query DealershipInventoryActivityController($id: ID!) {
   dealership(id: $id) {
     id
     name
